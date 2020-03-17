@@ -1,0 +1,48 @@
+.toolbar {
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    bottom: auto;
+    left: 0px;
+    right: 0px;
+    width: auto;
+    z-index: 0;
+    height: 1.375em;
+    display: block;
+    visibility: visible;
+}
+.cropper {
+    max-height: 150vh;
+    max-width: 150vh;
+    overflow: auto;
+}
+#toolbar {
+    padding-left: 16px;
+    color: #666;
+}
+
+#toolbar .fa {
+    padding: 1px;
+}
+
+#toolbar .fa,
+#toolbar .icon {
+    border: 1px solid transparent;
+}
+
+#toolbar .icon {
+    padding: 0 2px;
+}
+
+#toolbar .fa:hover,
+#toolbar .icon:hover {
+    background-color: #ddd;
+    border-color: #ccc;
+    cursor: pointer;
+}
+
+.width_height input {
+    /*font-size: 10px;*/
+    width: 3rem;
+    height: 1.25rem;
+}

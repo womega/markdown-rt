@@ -1,0 +1,168 @@
+.preview-wrap {
+    background-image: none !important;
+    background-color: rgba(40, 42, 54, 1) !important;
+}
+
+.preview-wrap * {
+    color: rgba(248, 248, 242, 1) !important;
+    background-color: rgba(40, 42, 54, 1) !important;
+}
+
+.preview-wrap a,
+.preview-wrap a * {
+    color: rgba(80, 250, 123, 1) !important;
+    background-color: transparent !important;
+}
+
+.preview-wrap a:hover,
+.preview-wrap a:hover *,
+.preview-wrap a:visited:hover,
+.preview-wrap a:visited:hover *,
+.preview-wrap span[onclick]:hover,
+.preview-wrap div[onclick]:hover,
+.preview-wrap [role="link"]:hover,
+.preview-wrap [role="link"]:hover *,
+.preview-wrap [role="button"]:hover *,
+.preview-wrap [role="menuitem"]:hover,
+.preview-wrap [role="menuitem"]:hover *,
+.preview-wrap .link:hover,
+.preview-wrap .link:hover * {
+    color: rgba(241, 250, 140, 1) !important;
+}
+
+.preview-wrap a:visited,
+.preview-wrap a:visited * {
+    color: rgba(98, 114, 164, 1) !important;
+}
+
+.preview-wrap h1,
+.preview-wrap h2,
+.preview-wrap h3,
+.preview-wrap h4,
+.preview-wrap h5,
+.preview-wrap h6,
+.preview-wrap strong,
+.preview-wrap [id*="headline"],
+.preview-wrap [class*="headline"],
+.preview-wrap [id*="header"],
+.preview-wrap [class*="header"],
+.preview-wrap [class*="header"] td {
+    color: rgba(255, 184, 108, 1) !important;
+}
+
+.preview-wrap table {
+    background-color: rgba(40, 42, 54, 1) !important;
+}
+
+.preview-wrap [id*="overlay"],
+.preview-wrap [id*="lightbox"],
+.preview-wrap blockquote {
+    background-color: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap pre,
+.preview-wrap dl {
+    background-color: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap input,
+.preview-wrap select,
+.preview-wrap button,
+.preview-wrap [role="button"],
+.preview-wrap a.button,
+.preview-wrap a.submit,
+.preview-wrap a.BigButton,
+.preview-wrap a.TabLink,
+.preview-wrap .install[onclick] {
+    text-indent: 5px;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    background: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap textarea {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    background: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap div,
+.preview-wrap ul,
+.preview-wrap li {
+    background-image: none !important;
+}
+
+.preview-wrap a.highlight,
+.preview-wrap a.highlight *,
+.preview-wrap a.active,
+.preview-wrap a.active *,
+.preview-wrap .selected,
+.preview-wrap .selected *,
+.preview-wrap [href="#"] {
+    font-weight: bold !important;
+    color: rgba(139, 233, 253, 1) !important;
+}
+
+.preview-wrap .table,
+.preview-wrap .table>th,
+.preview-wrap .table>td {
+    background-color: #c6c8ca;
+}
+
+.preview-wrap .table th,
+.preview-wrap .table td,
+.preview-wrap .table thead th,
+.preview-wrap .table tbody+tbody {
+    border-color: #95999c;
+}
+
+.preview-wrap .table-hover:hover {
+    background-color: #b9bbbe;
+}
+
+.preview-wrap .table-hover:hover>td,
+.preview-wrap .table-hover:hover>th {
+    background-color: #b9bbbe;
+}
+
+.preview-wrap .table {
+    color: yellow;
+    background-color: #343a40;
+}
+
+.preview-wrap .table th,
+.preview-wrap .table td,
+.preview-wrap .table thead th {
+    border-color: #454d55;
+}
+
+.preview-wrap .table.table-bordered {
+    border: 0;
+}
+
+.preview-wrap .table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.preview-wrap .table.table-hover tbody tr:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+.preview-wrap .table {
+    color: inherit;
+}
+
+.preview-wrap .table th,
+.preview-wrap .table td,
+.preview-wrap .table thead th,
+.preview-wrap .table tbody+tbody {
+    border-color: #dee2e6;
+}
+
+.preview-wrap .table .thead th {
+    color: inherit;
+    border-color: #dee2e6;
+}

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>MarkdownRT</title>
+        <link href="icons/omega.png" rel="shortcut icon" type="image/png" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/themes/github-markdown.css" />
+        <link rel="stylesheet" id="theme" href="styles/themes/default.css" />
+        <link rel="stylesheet" href="styles/md_advanced.css" />
+        <link rel="stylesheet" href="katex/dist/katex.min.css" />
+        <link rel="stylesheet" href="codemirror/lib/codemirror.css" />
+        <link rel="stylesheet" href="styles/helpers/prism.css" />
+        <link rel="stylesheet" href="styles/helpers/toolbar.css" />
+        <link rel="stylesheet" href="styles/helpers/resizer.css" />
+        <link rel="stylesheet" href="styles/helpers/dialog.css" />
+        <link rel="stylesheet" href="styles/helpers/sidenav.css" />
+        <link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css" />
+        <link rel="stylesheet" href="codemirror/addon/dialog/dialog.css" />
+        <link rel="stylesheet" href="codemirror/addon/search/matchesonscrollbar.css" />
+        <link rel="stylesheet" href="codemirror/addon/scroll/simplescrollbars.css" />
+        <link rel="stylesheet" href="codemirror/theme/dracula.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css" />
+    </head>
+
+    <body>
+        <!--<div id="sideNav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a><i onclick="openNav()">&#9776;</span>
+        </div>-->
+        <div id="main" class="rtmc" style="height: 99%; overflow: hidden;">
+            <div class="toolbar ui-layout-north ui-layout-pane ui-layout-pane-north">
+                <div id="toolbar" class="noselect">
+                    <i id="undo" title="Undo (Ctrl+Z)" class="fa fa-undo"></i>
+                    <i id="redo" title="Redo (Ctrl+Y)" class="fa fa-repeat"></i>
+                    <i id="search" title="Search" class="fa fa-search"></i>
+                    <i id="erase" title="Erase" class="fa fa-eraser"></i>
+                    <i class="dividor">|</i>
+                    <i title="Bold" class="fa fa-bold styling-icon" data-modifier="**"></i>
+                    <i title="Italic" class="fa fa-italic styling-icon" data-modifier="*"></i>
+                    <i title="Strikethrough" class="fa fa-strikethrough styling-icon" data-modifier="~~"></i>
+                    <i title="Inline" class="fa fa-pencil styling-icon" data-modifier="`"></i>
+
+                    <i class="dividor">|</i>
+
+                    <i title="Heading 1" class="fa heading-icon" data-level="1">h1</i>
+                    <i title="Heading 2" class="fa heading-icon" data-level="2">h2</i>
+                    <i title="Heading 3" class="fa heading-icon" data-level="3">h3</i>
+                    <i title="Heading 4" class="fa heading-icon" data-level="4">h4</i>
+                    <i title="Heading 5" class="fa heading-icon" data-level="5">h5</i>
+                    <i title="Heading 6" class="fa heading-icon" data-level="6">h6</i>
+
+                    <i class="dividor">|</i>
+
+                    <i title="Horizontal rule" id="horizontal-rule" class="fa fa-minus"></i>
+                    <i title="Quote" class="fa fa-quote-left list-icon" data-prefix="> "></i>
+                    <i title="Unordered list" class="fa fa-list-ul list-icon" data-prefix="- "></i>
+                    <i title="Ordered list" class="fa fa-list-ol list-icon" data-prefix="1. "></i>
+                    <i title="Incomplete task list" class="fa fa-square-o list-icon" data-prefix="- [ ] "></i>
+                    <i title="Complete task list" class="fa fa-check-square-o list-icon" data-prefix="- [x] "></i>
+
+                    <i class="dividor">|</i>
+                    <i title="Link" class="fa fa-link" id="link-icon" data-sample="link" data-sample-url="http://www.bing.cn/"></i>
+                    <i
+                        title="Image"
+                        class="fa fa-image"
+                        id="image-icon"
+                        data-sample="image"
+                        data-sample-url="https://cdn.foliovision.com/images/2017/03/i-love-markdown.png"
+                    ></i>
+                    <i title="Code" class="fa fa-code" id="code-icon"></i>
+                    <i
+                        title="Table"
+                        class="fa fa-table"
+                        id="table-icon"
+                        data-sample="header 1 | header 2
+---|---
+row 1 col 1 | row 1 col 2
+row 2 col 1 | row 2 col 2"
+                    ></i>
+                    <i class="dividor">|</i>
+
+                    <i title="Crop Image" class="fa fa-crop" id="crop_tool"></i>
+                    <i title="Increase size" class="fa fa-plus" id="inc-size"></i>
+                    <i title="Decrease size" class="fa fa-minus" id="dec-size"></i>
+                    <i class="width_height"
+                        ><label for="set_width">W:</label> <input type="number" id="set_width" name="set_width" min="0" disabled
+                    /></i>
+
+                    <i class="width_height"
+                        ><label for="set_height">H:</label> <input type="number" id="set_height" name="set_width" min="0" disabled
+                    /></i>
+
+                    <i title="Align Left" class="fa fa-align-left" id="left-align" data-style="text-align:left"></i>
+                    <i title="Align Center" class="fa fa-align-center" id="center-align" data-style="text-align:center"></i>
+                    <i title="Align Right" class="fa fa-align-right" id="right-align" data-style="text-align:right"></i>
+                    <i class="dividor">|</i>
+                    <i title="Emoji" class="fa fa-smile-o" data-remodal-target="emoji-modal"></i>
+                    <i title="Font awesome" class="fa fa-flag-o" data-remodal-target="fa-modal"></i>
+                    <i class="dividor">|</i>
+                    <i title="Mathematical formula" class="fa fa-superscript" id="math-icon" data-sample="math" data-value="E = mc^2"></i>
+                    <i
+                        title="Flowchart"
+                        class="fa fa-long-arrow-right mermaid-icon"
+                        data-sample="mermaid"
+                        data-value="graph LR
+A-->B"
+                    ></i>
+                    <i
+                        title="Sequence diagram"
+                        class="fa fa-exchange mermaid-icon"
+                        data-sample="mermaid"
+                        data-value="sequenceDiagram
+A->>B: How are you?
+B->>A: Great!"
+                    ></i>
+                    <i
+                        title="Gantt diagram"
+                        class="fa fa-sliders mermaid-icon"
+                        data-sample="mermaid"
+                        data-value="gantt
+dateFormat YYYY-MM-DD
+section S1
+T1: 2014-01-01, 9d
+section S2
+T2: 2014-01-11, 9d
+section S3
+T3: 2014-01-02, 9d"
+                    ></i>
+                    <i class="dividor">|</i>
+                    <i title="Mode" class="fa fa-adjust mode-icon" id="switch-mode"></i>
+                    <i title="Hide toolbar" class="fa fa-long-arrow-up" id="toggle-toolbar"></i>
+                    <i title="Toggle editor" class="fa fa-long-arrow-left" id="toggle-editor"></i>
+                    <i title="Toggle preview" class="fa fa-long-arrow-right" id="toggle-preview"></i>
+                    <i class="dividor">|</i>
+                    <input
+                        title="Import"
+                        id="import"
+                        class="fa fa-folder-open"
+                        type="file"
+                        id="file-input"
+                        style="width: 1.25rem; height: 1rem; overflow: hidden;"
+                    />
+                    <i title="Download" id="download" class="fa fa-download" data-remodal-target="download-modal"></i>
+                    <i title="Help" class="fa fa-question-circle" data-remodal-target="help-modal"></i>
+                </div>
+            </div>
+
+            <div class="editor-preview no-gutters">
+                <div class="editor-wrap col-md  no-gutters" id="editor-wrap" onmouseover="giveFocus('editor-wrap')">
+                    <textarea placeholder="Code goes here ..." id="pad"># Code goes here ...</textarea>
+                </div>
+            </div>
+            <div class="preview-wrap col-md" id="preview-wrap" onmouseover="giveFocus('preview-wrap')">
+                <div class="markdown-body" id="markdown"></div>
+            </div>
+
+            <div id="" class="resizer ui-layout-resizer-north ui-layout-resizer-open ui-layout-resizer-north-open">
+                <div
+                    id="resizer"
+                    class="resizer_tog ui-layout-toggler ui-layout-toggler-north ui-layout-toggler-open ui-layout-toggler-north-open"
+                    title="Hide toolbar"
+                ></div>
+            </div>
+            <div id="download-dialog" class="dialog download-dialog" style="display: none; width: 80%; height: 85%; top: 10%; left: 10%;">
+                <div class="dialog-header" style="cursor: move;">
+                    <strong class="dialog-title">HTML Output</strong>
+                </div>
+                <a class="fa fa-close dialog-close" id="close"></a>
+                <div class="dialog-container">
+                    <div class="markdown-download">
+                        hello there
+                    </div>
+                    <div class="dialog-footer">
+                        <button class="btn close-btn">Close</button>
+                    </div>
+                </div>
+                <div class="dialog-mask dialog-mask-bg"></div>
+                <div class="dialog-mask dialog-mask-con"></div>
+                <input type="file" id="file-input" />
+            </div>
+            <div id="cont_div" class="modal_ container cropper" style="display: none;">
+                <div id="img_div">
+                    <img id="image_crop" src="" style="display: block; max-width: 100%;" />
+                    <div class="col-md-16 docs-buttons">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="move" title="Move">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title='cropper.setDragMode("move")'>
+                                    <span class="fa fa-arrows-alt"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="crop" title="Crop">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title='cropper.setDragMode("crop")'>
+                                    <span class="fa fa-crop"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.zoom(0.1)">
+                                    <span class="fa fa-search-plus"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.zoom(-0.1)">
+                                    <span class="fa fa-search-minus"></span>
+                                </span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-method="move"
+                                data-option="-10"
+                                data-second-option="0"
+                                title="Move Left"
+                            >
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.move(-10, 0)">
+                                    <span class="fa fa-arrow-left"></span>
+                                </span>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-method="move"
+                                data-option="10"
+                                data-second-option="0"
+                                title="Move Right"
+                            >
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.move(10, 0)">
+                                    <span class="fa fa-arrow-right"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.move(0, -10)">
+                                    <span class="fa fa-arrow-up"></span>
+                                </span>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-method="move"
+                                data-option="0"
+                                data-second-option="10"
+                                title="Move Down"
+                            >
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.move(0, 10)">
+                                    <span class="fa fa-arrow-down"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.rotate(-45)">
+                                    <span class="fa fa-undo"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.rotate(45)">
+                                    <span class="fa fa-repeat"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-method="scaleX" data-option="1" title="Flip Horizontal">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.scaleX(-1)">
+                                    <span class="fa fa-arrows-h"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-method="scaleY" data-option="-1" title="Flip Vertical">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.scaleY(-1)">
+                                    <span class="fa fa-arrows-v"></span>
+                                </span>
+                            </button>
+
+                            <button id="confirm" type="button" class="btn btn-primary" title="Crop">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="">
+                                    <span class="fa fa-check"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-method="reset" title="Reset">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.reset()">
+                                    <span class="fa fa-eraser"></span>
+                                </span>
+                            </button>
+
+                            <button id="cancel" type="button" class="btn btn-primary" title="Destroy">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="">
+                                    <span class="fa fa-power-off"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="image-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header " style="cursor: move; ">
+                        <strong class="dialog-title ">Insert Image</strong>
+                        <span class="fa close fa-times" id="close-img"></span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form">
+                            <br />
+                            <label>Image Title: </label><input id="img-title" type="text " value="" data-alt=" " />
+                            <br />
+                            <label>Image Link: </label><input id="img-link" type="text " value="http://" data-link=" " />
+                            <br />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn enter-btn " id="conf-link">Insert <span class="fa fa-link"></span></button>
+                        <button type="button" class="btn enter-btn " id="conf-code" disabled="true">Insert <span class="fa fa-code"></span></button>
+                        <button type="button" class="btn cancel-btn " id="cancel-img"><span class="fa fa-times"></span> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <!--CodeMirror scripts-->
+    <script src="codemirror/lib/codemirror.js"></script>
+
+    <!--The Markdown overlayed modes for codemirror GFM is the main-->
+    <script src="codemirror/addon/mode/overlay.js"></script>
+    <script src="codemirror/mode/xml/xml.js"></script>
+    <script src="codemirror/mode/css/css.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="codemirror/mode/markdown/markdown.js"></script>
+    <script src="codemirror/mode/gfm/gfm.js"></script>
+
+    <!--CodeMirror Addons-->
+
+    <!--For scrollbar-->
+    <script src="codemirror/addon/scroll/annotatescrollbar.js"></script>
+    <script src="codemirror/addon/scroll/simplescrollbars.js"></script>
+    <!--For Folding-->
+    <script src="codemirror/addon/fold/foldcode.js"></script>
+    <script src="codemirror/addon/fold/markdown-fold.js"></script>
+    <script src="codemirror/addon/fold/xml-fold.js"></script>
+    <script src="codemirror/addon/fold/foldgutter.js"></script>
+    <!--For Brackets-->
+    <script src="codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="codemirror/addon/edit/closebrackets.js"></script>
+    <!--For Tags-->
+    <script src="codemirror/addon/edit/matchtags.js"></script>
+    <script src="codemirror/addon/edit/closetag.js"></script>
+    <!--For New Line Auto indent-->
+    <script src="codemirror/addon/edit/continuelist.js"></script>
+    <!--For search-->
+    <script src="codemirror/addon/dialog/dialog.js"></script>
+    <script src="codemirror/addon/search/search.js"></script>
+    <script src="codemirror/addon/search/jump-to-line.js"></script>
+    <script src="codemirror/addon/search/matchesonscrollbar.js"></script>
+    <script src="codemirror/addon/search/searchcursor.js"></script>
+    <script src="codemirror/addon/search/match-highlighter.js"></script>
+    <!--For selection-->
+    <script src="codemirror/addon/selection/active-line.js"></script>
+    <script src="codemirror/addon/selection/mark-selection.js"></script>
+
+    <!--Creating the codemirror editor-->
+    <script src="scripts/editor/editor.js"></script>
+
+    <!--<script src="scripts/helpers/sideNav.js"></script>-->
+
+    <script src="scripts/toolbar/toolbar_clone.js"></script>
+
+    <script src="scripts/helpers/prism.js"></script>
+
+    <script src="chart.js/dist/Chart.min.js"></script>
+
+    <script src="marked/marked.min.js"></script>
+
+    <!--
+  <script src="scripts/assist.js"></script>
+  <script src="showdown/dist/showdown.min.js"></script>
+    <script src="/channel/bcsocket.js"></script>
+<script src="/share/share.uncompressed.js"></script>
+<script src="/share/textarea.js">
+</script>
+<script src="highlight/lib/highlight.js"></script>
+    
+-->
+
+    <!--The mermaid script for UML diagrams
+<script src="mermaid/dist/mermaid.min.js"></script>
+<script src="mermaid/dist/mermaidAPI.js"></script>-->
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"></script>
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="katex/dist/katex.min.js"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="katex/dist/contrib/auto-render.min.js"></script>
+
+    <!-- The bundle for markdown-->
+    <script type="text/javascript" src="dist/bundle.js"></script>
+    <!--The emoji script-->
+    <script src="node-emoji/lib/emoji.js"></script>
+
+    <script defer>
+        var editor_x = editor.getScrollInfo().top;
+        var preview_x = document.getElementById("preview-wrap");
+        setInterval(function() {
+            editor_x = editor.getScrollInfo().top;
+        }, 1000);
+        /*var didChangeOccur = function() {
+        if (previousMarkdownValue != editor.getValue()) {
+            return true;
+        }
+        return false;
+    };
+
+    // check every scrolling happened if the text area has changed
+    */
+
+        function giveFocus(wrap) {
+            if (wrap === "preview-wrap") {
+                editor.scrollTo(null, Math.floor(preview_x.scrollTop));
+            } else if (wrap === "editor-wrap" && editor_x === editor.getScrollInfo().top) {
+                preview_x.scrollTop = Math.floor(editor_x);
+            }
+        }
+
+        function SyncScroll(wrap) {
+            var preview_x = document.getElementById("preview-wrap");
+            //editor_x = {};
+            //editor.on("scroll", console.log(1));
+            if (wrap !== "preview-wrap") {
+                preview_x.scrollTop = Math.floor(editor_x.top);
+            } else if (wrap === "preview-wrap") {
+                editor.scrollTo(null, Math.floor(preview_x.scrollTop));
+                //console.log(preview_x.scrollTop);
+                console.log("scrolling-preview");
+                //console.log(editor_x.top);
+            }
+        }
+    </script>
+</html>

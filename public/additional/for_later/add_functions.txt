@@ -1,0 +1,21 @@
+sync scrollbars
+
+CodeMirror-overlayscroll-vertical
+
+
+
+
+allowDropFileTypes: array<string>
+When set (default is null) only files whose type is in the array can be dropped 
+into the editor. The strings should be MIME types, 
+and will be checked against the type of the File object as reported by the browser.
+
+light mode -- dark mode
+    for tables: use bootstrap table class
+
+
+add spinner buttons that activate only when in an image,
+and set the default values to those of the images
+    
+    
+    

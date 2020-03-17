@@ -1,0 +1,9 @@
+github-markdown
+katex
+asciimath-to-latex
+browserify
+chartjs
+codemirror
+marked
+node-emoji
+mermaid

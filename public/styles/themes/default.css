@@ -1,0 +1,107 @@
+.preview-wrap {
+    background-image: default;
+    background-color: white !important;
+}
+
+
+/*.preview-wrap * {
+    color: black !important;
+    background-color: white !important;
+}
+
+.preview-wrap a,
+.preview-wrap a * {
+    color: blue !important;
+    background-color: transparent !important;
+}
+
+.preview-wrap a:hover,
+.preview-wrap a:hover *,
+.preview-wrap a:visited:hover,
+.preview-wrap a:visited:hover *,
+.preview-wrap span[onclick]:hover,
+.preview-wrap div[onclick]:hover,
+.preview-wrap [role="link"]:hover,
+.preview-wrap [role="link"]:hover *,
+.preview-wrap [role="button"]:hover *,
+.preview-wrap [role="menuitem"]:hover,
+.preview-wrap [role="menuitem"]:hover *,
+.preview-wrap .link:hover,
+.preview-wrap .link:hover * {
+    color: blue !important;
+}
+
+.preview-wrap a:visited,
+.preview-wrap a:visited * {
+    color: blue !important;
+}
+
+.preview-wrap h1,
+.preview-wrap h2,
+.preview-wrap h3,
+.preview-wrap h4,
+.preview-wrap h5,
+.preview-wrap h6,
+.preview-wrap strong,
+.preview-wrap [id*="headline"],
+.preview-wrap [class*="headline"],
+.preview-wrap [id*="header"],
+.preview-wrap [class*="header"],
+.preview-wrap [class*="header"] td {
+    color: black !important;
+}
+
+.preview-wrap table {
+    background-color: white !important;
+}
+
+.preview-wrap [id*="overlay"],
+.preview-wrap [id*="lightbox"],
+.preview-wrap blockquote {
+    background-color: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap pre,
+.preview-wrap dl {
+    background-color: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap input,
+.preview-wrap select,
+.preview-wrap button,
+.preview-wrap [role="button"],
+.preview-wrap a.button,
+.preview-wrap a.submit,
+.preview-wrap a.BigButton,
+.preview-wrap a.TabLink,
+.preview-wrap .install[onclick] {
+    text-indent: 5px;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    background: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap textarea {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    background: rgba(68, 71, 90, 1) !important;
+}
+
+.preview-wrap div,
+.preview-wrap ul,
+.preview-wrap li {
+    background-image: default;
+}
+
+.preview-wrap a.highlight,
+.preview-wrap a.highlight *,
+.preview-wrap a.active,
+.preview-wrap a.active *,
+.preview-wrap .selected,
+.preview-wrap .selected *,
+.preview-wrap [href="#"] {
+    font-weight: bold !important;
+    color: rgba(139, 233, 253, 1) !important;
+}*/

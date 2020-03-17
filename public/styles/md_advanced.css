@@ -1,0 +1,273 @@
+/*customized css for markdown area*/
+
+#markdown {
+    display: flex;
+    font-family: "Times New Roman", Times, serif;
+    flex-direction: column;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    word-wrap: break-word
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0!important
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0!important
+}
+
+.markdown-body p {
+    text-align: justify
+}
+
+.markdown-body img {
+    background-color: transparent
+}
+
+.markdown-body table thead {
+    background-color: #f6f8fa;
+}
+
+
+/*to display text at the bottom right of images*/
+
+.markdown-body img {
+    vertical-align: bottom;
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: white
+}
+
+.markdown-body img {
+    background-color: transparent
+}
+
+.markdown-body img {
+    border: 0
+}
+
+
+/* horizontal scrollbar for long math equations*/
+
+.markdown-body .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+/*horizontal scrollbar for UML diagrams*/
+
+
+/* remove comment if need to use
+.markdown-body .mermaid{
+    overflow-x: auto;
+    overflow-y: hidden;
+  }*/
+
+
+/*custom containers*/
+
+.markdown-body .success {
+    border-style: hidden;
+    background-color: lightgreen;
+    color: darkgreen;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+}
+
+.markdown-body .info {
+    border-style: hidden;
+    background-color: lightblue;
+    color: darkblue;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+}
+
+.markdown-body .warning {
+    border-style: hidden;
+    background-color: rgb(255, 255, 170);
+    color: darkorange;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+}
+
+.markdown-body .danger {
+    border-style: hidden;
+    background-color: rgba(177, 116, 116, 0.685);
+    color: darkred;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+}
+
+.markdown-body .danger>p:last-child,
+.markdown-body .info>p:last-child,
+.markdown-body .success>p:last-child,
+.markdown-body .warning>p:last-child {
+    margin-bottom: 0
+}
+
+.markdown-body p code,
+.markdown-body table code,
+.markdown-body h1 code,
+.markdown-body h2 code {
+    background-color: #f5f2f0;
+    color: darkgrey;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.markdown-body ul li.task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .mermaid {
+    text-align: center
+}
+
+.markdown-body .chartjs-hidden-iframe+* {
+    margin-top: 0!important
+}
+
+.markdown-body .footnotes-sep {
+    margin: 128px 0 32px;
+    height: 1px
+}
+
+.markdown-body .footnotes {
+    padding-left: 16px;
+    font-size: 14px
+}
+
+.markdown-body .footnote-item>p {
+    margin: 8px 0
+}
+
+
+/*.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all
+}
+
+.markdown-body table th {
+    font-weight: 700
+}
+
+.markdown-body table td,
+.markdown-body table th {
+    padding: 6px 13px;
+    border: 1px solid #ddd
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}*/
+
+
+/*#markdown table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: auto;
+    border: 1px solid #ddd;
+}
+
+
+
+#markdown table td,
+#markdown table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: auto;
+}
+
+#markdown table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}*/
+
+
+/*for lists **to edit** */
+
+
+/*.markdown-body li {
+    word-wrap: break-all;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body li+li {
+    margin-top: .25em;
+}*/
+
+
+/*ul
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+    padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}*/
+
+
+/*for blockquote*/
+
+
+/*
+#markdown blockquote {
+    margin-left: 10px;
+    font-style: italic;
+    border-left: 5px solid #f5f2f0;
+    padding: 5% 0;
+    padding-left: 5%;
+}
+
+#markdown blockquote p {
+    margin-left: auto;
+    padding: 0;
+    padding-left: 5%;
+}
+*/
+
+
+/*underline all h1 and h2
+
+#markdown h1,
+#markdown h2 {
+    line-height: 1.6;
+    border-bottom: 2px solid rgba(224, 209, 209, 0.808);
+}*/

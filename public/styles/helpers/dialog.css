@@ -1,0 +1,303 @@
+.dialog {
+    color: #666;
+    position: fixed;
+    z-index: 99999;
+    display: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    top: 2rem;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    -ms-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    -o-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    background: #fff;
+    font-size: 14px
+}
+
+.modal {
+    display: none;
+    font-family: "Times New Roman", Times, serif;
+    /* Hidden by default */
+    position: absolute;
+    /* Stay in place */
+    z-index: 100;
+    /* Sit on top */
+    padding-top: 0;
+    padding-bottom: 0;
+    /* Location of the box */
+    width: 380px;
+    /* Full width */
+    height: 200px;
+    /* Full height */
+    left: 50%;
+    top: 50%;
+    margin-left: -190px;
+    margin-top: -100px;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    background: rgba(33, 36, 46, .6)!important
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 380;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body input {
+    display: inline-block;
+    width: 264px;
+    color: black;
+    margin: 0;
+    line-height: normal;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb8b8;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb8b8;
+    color: white;
+}
+
+.modal h1 {
+    font-size: 24px;
+    margin-bottom: 10px
+}
+
+.modal h1 .fa {
+    color: #2C7EEA;
+    padding-right: 5px
+}
+
+.modal h1 small {
+    padding-left: 5px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #999
+}
+
+.modal select {
+    color: #999;
+    padding: 3px 8px;
+    border: 1px solid #ddd
+}
+
+.dialog-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 18px;
+    color: #ccc;
+    -webkit-transition: color 300ms ease-out;
+    -moz-transition: color 300ms ease-out;
+    transition: color 300ms ease-out
+}
+
+.dialog-close:hover {
+    color: #999
+}
+
+.dialog-header {
+    padding: 11px 20px;
+    border-bottom: 1px solid #eee;
+    -webkit-transition: background 300ms ease-out;
+    -moz-transition: background 300ms ease-out;
+    transition: background 300ms ease-out
+}
+
+.dialog-header:hover {
+    background: #f6f6f6
+}
+
+.dialog-title {
+    font-size: 20px
+}
+
+.modal-footer {
+    padding: 10px 0 0;
+    text-align: right
+}
+
+.dialog-info {
+    width: 420px
+}
+
+.dialog-info h1 {
+    font-weight: 400
+}
+
+.dialog-info .modal {
+    padding: 20px 25px 25px
+}
+
+.dialog-info .dialog-close {
+    top: 10px;
+    right: 10px
+}
+
+.dialog-close:hover {
+    cursor: pointer
+}
+
+.dialog-info .hover-link:hover,
+.dialog-info p>a {
+    color: #2196F3
+}
+
+.dialog-info .hover-link {
+    color: #666
+}
+
+.dialog-info a .fa-external-link {
+    display: none
+}
+
+.dialog-info a:hover {
+    color: #2196F3
+}
+
+.dialog-info a:hover .fa-external-link {
+    display: inline-block
+}
+
+.container-mask,
+.dialog-mask,
+.mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.dialog-mask-bg,
+.mask {
+    background: #fff;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+.mask {
+    position: fixed;
+    background: #000;
+    opacity: .2;
+    filter: alpha(opacity=20);
+    z-index: 99998
+}
+
+.container-mask,
+.dialog-mask-con {
+    /*background: url(../../images/loading.gif)center center no-repeat;*/
+    -webkit-background-size: 32px 32px;
+    -moz-background-size: 32px 32px;
+    -o-background-size: 32px 32px;
+    background-size: 32px 32px
+}
+
+.container-mask {
+    z-index: 20;
+    display: block;
+    background-color: #fff
+}
+
+.code-block-dialog textarea,
+.preformatted-text-dialog textarea {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 6px;
+    overflow: auto;
+    border: 1px solid #eee;
+    background: #fff;
+    padding: 15px;
+    resize: none
+}
+
+.modal .btn,
+.modal button,
+.modal input[type=submit],
+.modal-footer .btn,
+.modal-footer button,
+.modal-footer input[type=submit],
+.form .btn,
+.form button,
+.form input[type=submit] {
+    color: #666;
+    min-width: 75px;
+    cursor: pointer;
+    background: #fff;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: background 300ms ease-out;
+    -moz-transition: background 300ms ease-out;
+    transition: background 300ms ease-out
+}
+
+.modal .btn:hover,
+.modal button:hover,
+.modal input[type=submit]:hover,
+.modal-footer .btn:hover,
+.modal-footer button:hover,
+.modal-footer input[type=submit]:hover,
+.form .btn:hover,
+.form button:hover,
+.form input[type=submit]:hover {
+    background: #eee
+}
+
+.modal .btn+.btn,
+.modal-footer .btn+.btn,
+.form .btn+.btn {
+    margin-left: 8px
+}
+
+.markdown-download {
+    min-height: 17.5rem;
+}
