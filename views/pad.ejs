@@ -88,23 +88,7 @@ row 1 col 1 | row 1 col 2
 row 2 col 1 | row 2 col 2"
                     ></i>
                     <i class="dividor">|</i>
-
-                    <i title="Crop Image" class="fa fa-crop" id="crop_tool"></i>
-                    <i title="Increase size" class="fa fa-plus" id="inc-size"></i>
-                    <i title="Decrease size" class="fa fa-minus" id="dec-size"></i>
-                    <i class="width_height"
-                        ><label for="set_width">W:</label> <input type="number" id="set_width" name="set_width" min="0" disabled
-                    /></i>
-
-                    <i class="width_height"
-                        ><label for="set_height">H:</label> <input type="number" id="set_height" name="set_width" min="0" disabled
-                    /></i>
-
-                    <i title="Align Left" class="fa fa-align-left" id="left-align" data-style="text-align:left"></i>
-                    <i title="Align Center" class="fa fa-align-center" id="center-align" data-style="text-align:center"></i>
-                    <i title="Align Right" class="fa fa-align-right" id="right-align" data-style="text-align:right"></i>
-                    <i class="dividor">|</i>
-                    <i title="Emoji" class="fa fa-smile-o" data-remodal-target="emoji-modal"></i>
+                    <i title="Emoji" id="emoji-button" class="fa fa-smile-o" data-remodal-target="emoji-modal"></i>
                     <i title="Font awesome" class="fa fa-flag-o" data-remodal-target="fa-modal"></i>
                     <i class="dividor">|</i>
                     <i title="Mathematical formula" class="fa fa-superscript" id="math-icon" data-sample="math" data-value="E = mc^2"></i>
@@ -137,6 +121,21 @@ section S3
 T3: 2014-01-02, 9d"
                     ></i>
                     <i class="dividor">|</i>
+                    <i title="Crop Image" class="fa fa-crop" id="crop_tool"></i>
+                    <i title="Increase size" class="fa fa-plus" id="inc-size"></i>
+                    <i title="Decrease size" class="fa fa-minus" id="dec-size"></i>
+                    <i class="width_height"
+                        ><label for="set_width">W:</label> <input type="number" id="set_width" name="set_width" min="0" disabled
+                    /></i>
+
+                    <i class="width_height"
+                        ><label for="set_height">H:</label> <input type="number" id="set_height" name="set_width" min="0" disabled
+                    /></i>
+
+                    <i title="Align Left" class="fa fa-align-left" id="left-align" data-style="text-align:left"></i>
+                    <i title="Align Center" class="fa fa-align-center" id="center-align" data-style="text-align:center"></i>
+                    <i title="Align Right" class="fa fa-align-right" id="right-align" data-style="text-align:right"></i>
+                    <i class="dividor">|</i>
                     <i title="Mode" class="fa fa-adjust mode-icon" id="switch-mode"></i>
                     <i title="Hide toolbar" class="fa fa-long-arrow-up" id="toggle-toolbar"></i>
                     <i title="Toggle editor" class="fa fa-long-arrow-left" id="toggle-editor"></i>
@@ -156,12 +155,14 @@ T3: 2014-01-02, 9d"
             </div>
 
             <div class="editor-preview no-gutters">
-                <div class="editor-wrap col-md  no-gutters" id="editor-wrap" onmouseover="giveFocus('editor-wrap')">
-                    <textarea placeholder="Code goes here ..." id="pad"># Code goes here ...</textarea>
+                <div class="editor-wrap col-md  no-gutters" id="editor-wrap">
+                    <textarea placeholder="Code goes here ..." id="pad"># Code goes here ...</textarea
+                    ><!--onmouseover="giveFocus('editor-wrap')"-->
                 </div>
             </div>
-            <div class="preview-wrap col-md" id="preview-wrap" onmouseover="giveFocus('preview-wrap')">
+            <div class="preview-wrap col-md" id="preview-wrap">
                 <div class="markdown-body" id="markdown"></div>
+                <!--onmouseover="giveFocus('preview-wrap')"-->
             </div>
 
             <div id="" class="resizer ui-layout-resizer-north ui-layout-resizer-open ui-layout-resizer-north-open">
@@ -365,19 +366,6 @@ T3: 2014-01-02, 9d"
     <script src="codemirror/addon/selection/active-line.js"></script>
     <script src="codemirror/addon/selection/mark-selection.js"></script>
 
-    <!--Creating the codemirror editor-->
-    <script src="scripts/editor/editor.js"></script>
-
-    <!--<script src="scripts/helpers/sideNav.js"></script>-->
-
-    <script src="scripts/toolbar/toolbar_clone.js"></script>
-
-    <script src="scripts/helpers/prism.js"></script>
-
-    <script src="chart.js/dist/Chart.min.js"></script>
-
-    <script src="marked/marked.min.js"></script>
-
     <!--
   <script src="scripts/assist.js"></script>
   <script src="showdown/dist/showdown.min.js"></script>
@@ -405,6 +393,21 @@ T3: 2014-01-02, 9d"
     <script type="text/javascript" src="dist/bundle.js"></script>
     <!--The emoji script-->
     <script src="node-emoji/lib/emoji.js"></script>
+
+    <script src="scripts/helpers/emoji-button.min.js"></script>
+
+    <!--Creating the codemirror editor-->
+    <script src="scripts/editor/editor.js"></script>
+
+    <!--<script src="scripts/helpers/sideNav.js"></script>-->
+
+    <script src="scripts/toolbar/toolbar_clone.js"></script>
+
+    <script src="scripts/helpers/prism.js"></script>
+
+    <script src="chart.js/dist/Chart.min.js"></script>
+
+    <script src="marked/marked.min.js"></script>
 
     <script defer>
         var editor_x = editor.getScrollInfo().top;

@@ -1,5 +1,5 @@
 window.addEventListener("load", function() {
-    var toolbar = document.getElementById("toolbar"),
+    const toolbar = document.getElementById("toolbar"),
         res = document.getElementsByClassName("resizer")[0],
         ed_wrap = document.getElementsByClassName("editor-wrap")[0],
         pre_wrap = document.getElementsByClassName("preview-wrap")[0],
@@ -36,7 +36,7 @@ window.addEventListener("load", function() {
         }
     }*/
 
-    var undo_btn = toolbar.querySelector("[id=undo]"),
+    const undo_btn = toolbar.querySelector("[id=undo]"),
         redo_btn = toolbar.querySelector("[id=redo]"),
         search_btn = toolbar.querySelector("[id=search]"),
         erase_btn = toolbar.querySelector("[id=erase]"),
@@ -55,7 +55,8 @@ window.addEventListener("load", function() {
         resizer_btn = document.getElementById("resizer"),
         crop_button = toolbar.querySelector("[id=crop_tool]"),
         enl_button = toolbar.querySelector("[id=inc-size]"),
-        dec_button = toolbar.querySelector("[id=dec-size]");
+        dec_button = toolbar.querySelector("[id=dec-size]"),
+        emoji_button = document.querySelector("[id=emoji-button]");
 
     var selection = "",
         doc = editor.getDoc(),
@@ -141,13 +142,9 @@ window.addEventListener("load", function() {
                         image.src = reader.result;
                         const cropper = new Cropper(image, {
                             crop(event) {
-                                cont_div.style.marginLeft =
-                                    "-" + cont_div.offsetWidth / 2 + "px";
-                                cont_div.style.marginTop =
-                                    "-" + cont_div.offsetHeight / 2 + "px";
-                                image.src = cropper
-                                    .getCroppedCanvas()
-                                    .toDataURL("image/jpeg");
+                                cont_div.style.marginLeft = "-" + cont_div.offsetWidth / 2 + "px";
+                                cont_div.style.marginTop = "-" + cont_div.offsetHeight / 2 + "px";
+                                image.src = cropper.getCroppedCanvas().toDataURL("image/jpeg");
                             }
                         });
                         /*var methods = img_buttons.querySelectorAll('[data-method]')
@@ -160,22 +157,14 @@ window.addEventListener("load", function() {
                             }())
                         }*/
 
-                        img_buttons
-                            .querySelectorAll("[data-original-title]")
-                            .forEach(item => {
-                                item.addEventListener("click", event => {
-                                    eval(item.dataset.originalTitle);
-                                });
+                        img_buttons.querySelectorAll("[data-original-title]").forEach(item => {
+                            item.addEventListener("click", event => {
+                                eval(item.dataset.originalTitle);
                             });
+                        });
 
                         conf_btn.onclick = function(e) {
-                            insertTextAtCursor(
-                                doc,
-                                cursor,
-                                '\n###### Image\n\n<p><img src="' +
-                                    image.src +
-                                    '"></p>\n\n'
-                            );
+                            insertTextAtCursor(doc, cursor, '\n###### Image\n\n<p><img src="' + image.src + '"></p>\n\n');
                             cont_div.style = "display: none";
                             cropper.destroy();
                             editor.focus();
@@ -191,13 +180,7 @@ window.addEventListener("load", function() {
                 } else {
                     reader.onload = function() {
                         image.src = reader.result;
-                        insertTextAtCursor(
-                            doc,
-                            cursor,
-                            '\n###### Image\n\n<p><img src="' +
-                                image.src +
-                                '"></p>\n\n'
-                        );
+                        insertTextAtCursor(doc, cursor, '\n###### Image\n\n<p><img src="' + image.src + '"></p>\n\n');
                         editor.focus();
                     };
                     reader.readAsDataURL(file);
@@ -217,6 +200,23 @@ window.addEventListener("load", function() {
             crop(event) {}
         });
     }
+
+    //function emoji_modal(){}
+    console.log(emoji_button);
+
+    const picker = new EmojiButton();
+    console.log(picker);
+
+    picker.on("emoji", emoji => {
+        //document.querySelector("input").value += emoji;
+        insertTextAtCursor(doc, cursor, emoji);
+    });
+
+    emoji_button.addEventListener("click", () => {
+        console.log(this);
+
+        picker.togglePicker(emoji_button);
+    });
 
     /*if (URL) {
     inputImage.onchange = function () {
@@ -308,10 +308,7 @@ window.addEventListener("load", function() {
             // check if the current & previous lines are empty
             // add the text
             doc.replaceRange(text + "\n\n", pos);
-        } else if (
-            line.length === 0 &&
-            doc.getLine(cursor.line - 1).length !== 0
-        ) {
+        } else if (line.length === 0 && doc.getLine(cursor.line - 1).length !== 0) {
             // add a new line and the text
             doc.replaceRange("\n" + text + "\n\n", pos);
         } else {
@@ -330,6 +327,8 @@ window.addEventListener("load", function() {
     hide_tool.addEventListener(
         "click",
         function() {
+            console.log(0);
+
             show_hide_tb(event);
         },
         false
@@ -400,21 +399,15 @@ window.addEventListener("load", function() {
                     img_data = $(line);
                 console.log(img_data[0].firstElementChild.src);
                 cont_div.style.display = "block";
-                cont_div.style.marginLeft =
-                    "-" + cont_div.offsetWidth / 2 + "px";
-                cont_div.style.marginTop =
-                    "-" + cont_div.offsetHeight / 2 + "px";
+                cont_div.style.marginLeft = "-" + cont_div.offsetWidth / 2 + "px";
+                cont_div.style.marginTop = "-" + cont_div.offsetHeight / 2 + "px";
                 image.src = img_data[0].firstElementChild.src;
 
                 const cropper = new Cropper(image, {
                     crop(event) {
-                        cont_div.style.marginLeft =
-                            "-" + cont_div.offsetWidth / 2 + "px";
-                        cont_div.style.marginTop =
-                            "-" + cont_div.offsetHeight / 2 + "px";
-                        image.src = cropper
-                            .getCroppedCanvas()
-                            .toDataURL("image/jpeg");
+                        cont_div.style.marginLeft = "-" + cont_div.offsetWidth / 2 + "px";
+                        cont_div.style.marginTop = "-" + cont_div.offsetHeight / 2 + "px";
+                        image.src = cropper.getCroppedCanvas().toDataURL("image/jpeg");
                     }
                 });
             }
@@ -428,13 +421,11 @@ window.addEventListener("load", function() {
                         }())
                     }*/
 
-            img_buttons
-                .querySelectorAll("[data-original-title]")
-                .forEach(item => {
-                    item.addEventListener("click", event => {
-                        eval(item.dataset.originalTitle);
-                    });
+            img_buttons.querySelectorAll("[data-original-title]").forEach(item => {
+                item.addEventListener("click", event => {
+                    eval(item.dataset.originalTitle);
                 });
+            });
 
             conf_btn.onclick = function(e) {
                 replaceLine(doc, '<p><img src="' + image.src + '"></p>');
@@ -498,10 +489,7 @@ window.addEventListener("load", function() {
                 function() {
                     var modifier_val = this.dataset.modifier;
                     if (Boolean(selection)) {
-                        replaceSelection(
-                            doc,
-                            modifier_val + selection + modifier_val
-                        );
+                        replaceSelection(doc, modifier_val + selection + modifier_val);
                     } else {
                         insertTextAtCursor(doc, cursor, modifier_val);
                     }
@@ -554,10 +542,7 @@ window.addEventListener("load", function() {
                             for (var j = 0; j < lines.length; j++) {
                                 (function() {
                                     if (lines[j] !== "") {
-                                        replaceSelection(
-                                            doc,
-                                            prefix_val + lines[j] + "\n"
-                                        );
+                                        replaceSelection(doc, prefix_val + lines[j] + "\n");
                                     }
                                 })();
                             }
@@ -597,16 +582,9 @@ window.addEventListener("load", function() {
                     if (sample_type === "link") {
                         sample_url = this.dataset.sampleUrl;
                         if (Boolean(selection)) {
-                            replaceSelection(
-                                doc,
-                                "[" + selection + "]" + "(" + sample_url + ")"
-                            );
+                            replaceSelection(doc, "[" + selection + "]" + "(" + sample_url + ")");
                         } else {
-                            insertTextAtCursor(
-                                doc,
-                                cursor,
-                                "[link]" + "(" + sample_url + ")"
-                            );
+                            insertTextAtCursor(doc, cursor, "[link]" + "(" + sample_url + ")");
                         }
                     } else if (sample_type === "image") {
                         sample_url = this.dataset.sampleUrl;
@@ -633,13 +611,8 @@ window.addEventListener("load", function() {
                         conf_link.addEventListener(
                             "click",
                             function() {
-                                var title = document.getElementById("img-title")
-                                    .value;
-                                insertTextAtCursor(
-                                    doc,
-                                    cursor,
-                                    "![" + title + "]" + "(" + link + ")"
-                                );
+                                var title = document.getElementById("img-title").value;
+                                insertTextAtCursor(doc, cursor, "![" + title + "]" + "(" + link + ")");
                                 modal.style.display = "none";
                                 document.getElementById("img-link").value = "";
                                 document.getElementById("img-title").value = "";
@@ -666,36 +639,18 @@ window.addEventListener("load", function() {
                         sample_val = this.dataset.value;
                         if (sample_type === "math") {
                             if (Boolean(selection)) {
-                                replaceSelection(
-                                    doc,
-                                    "\n```katex\n" + selection + "\n```\n"
-                                );
+                                replaceSelection(doc, "\n```katex\n" + selection + "\n```\n");
                             } else {
-                                insertTextAtCursor(
-                                    doc,
-                                    cursor,
-                                    "\n```katex\n" + sample_val + "\n```\n"
-                                );
+                                insertTextAtCursor(doc, cursor, "\n```katex\n" + sample_val + "\n```\n");
                             }
                         } else if (sample_type === "mermaid") {
                             if (Boolean(selection)) {
-                                replaceSelection(
-                                    doc,
-                                    "\n```uml\n" + selection + "\n```"
-                                );
+                                replaceSelection(doc, "\n```uml\n" + selection + "\n```");
                             } else {
-                                insertTextAtCursor(
-                                    doc,
-                                    cursor,
-                                    "\n```uml\n" + sample_val + "\n```\n"
-                                );
+                                insertTextAtCursor(doc, cursor, "\n```uml\n" + sample_val + "\n```\n");
                             }
                         } else {
-                            insertTextAtCursor(
-                                doc,
-                                cursor,
-                                "\n\n" + sample_type + "\n"
-                            );
+                            insertTextAtCursor(doc, cursor, "\n\n" + sample_type + "\n");
                         }
                     }
                 },
@@ -711,12 +666,10 @@ window.addEventListener("load", function() {
             var ed_curr = editor.getOption("theme");
             if (ed_curr === "default") {
                 editor.setOption("theme", "dracula");
-                document.getElementById("theme").href =
-                    "styles/themes/dark.css";
+                document.getElementById("theme").href = "styles/themes/dark.css";
             } else {
                 editor.setOption("theme", "default");
-                document.getElementById("theme").href =
-                    "styles/themes/default.css";
+                document.getElementById("theme").href = "styles/themes/default.css";
             }
             editor.focus();
         },

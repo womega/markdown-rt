@@ -14,8 +14,7 @@ light mode -- dark mode
     for tables: use bootstrap table class
 
 
-add spinner buttons that activate only when in an image,
-and set the default values to those of the images
+create local link for image instead of base64
     
     
     
