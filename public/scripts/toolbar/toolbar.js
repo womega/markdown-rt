@@ -327,8 +327,6 @@ window.addEventListener("load", function() {
     hide_tool.addEventListener(
         "click",
         function() {
-            console.log(0);
-
             show_hide_tb(event);
         },
         false
@@ -351,6 +349,7 @@ window.addEventListener("load", function() {
     erase_btn.addEventListener(
         "click",
         function() {
+            //console.log(0);
             editor.setValue("");
             //editor.clearHistory();
             editor.focus();

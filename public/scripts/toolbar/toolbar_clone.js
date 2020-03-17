@@ -1,5 +1,5 @@
 window.addEventListener("load", function() {
-    var toolbar = document.getElementById("toolbar"),
+    const toolbar = document.getElementById("toolbar"),
         res = document.getElementsByClassName("resizer")[0],
         ed_wrap = document.getElementsByClassName("editor-wrap")[0],
         pre_wrap = document.getElementsByClassName("preview-wrap")[0],
@@ -36,7 +36,7 @@ window.addEventListener("load", function() {
         }
     }*/
 
-    var undo_btn = toolbar.querySelector("[id=undo]"),
+    const undo_btn = toolbar.querySelector("[id=undo]"),
         redo_btn = toolbar.querySelector("[id=redo]"),
         search_btn = toolbar.querySelector("[id=search]"),
         erase_btn = toolbar.querySelector("[id=erase]"),
@@ -58,7 +58,8 @@ window.addEventListener("load", function() {
         dec_button = toolbar.querySelector("[id=dec-size]"),
         width_in = toolbar.querySelector("[id=set_width]"),
         height_in = toolbar.querySelector("[id=set_height]"),
-        align_btns = toolbar.querySelectorAll("[data-style]");
+        align_btns = toolbar.querySelectorAll("[data-style]"),
+        emoji_button = document.querySelector("[id=emoji-button]");
 
     var selection = "",
         doc = editor.getDoc(),
@@ -206,6 +207,18 @@ window.addEventListener("load", function() {
             crop(event) {}
         });
     }
+
+    const picker = new EmojiButton({
+        zIndex: 99999
+    });
+
+    picker.on("emoji", emoji => {
+        insertTextAtCursor(doc, cursor, emoji);
+    });
+
+    emoji_button.addEventListener("click", () => {
+        picker.togglePicker(emoji_button);
+    });
 
     /*if (URL) {
     inputImage.onchange = function () {
@@ -749,9 +762,11 @@ window.addEventListener("load", function() {
             if (ed_curr === "default") {
                 editor.setOption("theme", "dracula");
                 document.getElementById("theme").href = "styles/themes/dark.css";
+                picker.options.theme = "dark";
             } else {
                 editor.setOption("theme", "default");
                 document.getElementById("theme").href = "styles/themes/default.css";
+                picker.options.theme = "light";
             }
             editor.focus();
         },
