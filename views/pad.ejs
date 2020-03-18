@@ -6,9 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>MarkdownRT</title>
         <link href="icons/omega.png" rel="shortcut icon" type="image/png" />
+        <!--<link rel="stylesheet" href="styles/helpers/bootstrap.css" />-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/css/fontawesome-iconpicker.min.css" />
         <link rel="stylesheet" href="styles/style.css" />
         <link rel="stylesheet" href="styles/themes/github-markdown.css" />
         <link rel="stylesheet" id="theme" href="styles/themes/default.css" />
@@ -38,7 +39,7 @@
             <a href="#">Contact</a><i onclick="openNav()">&#9776;</span>
         </div>-->
         <div id="main" class="rtmc" style="height: 99%; overflow: hidden;">
-            <div class="toolbar ui-layout-north ui-layout-pane ui-layout-pane-north">
+            <div class="navbar toolbar ui-layout-north ui-layout-pane ui-layout-pane-north">
                 <div id="toolbar" class="noselect">
                     <i id="undo" title="Undo (Ctrl+Z)" class="fa fa-undo"></i>
                     <i id="redo" title="Redo (Ctrl+Y)" class="fa fa-repeat"></i>
@@ -52,12 +53,12 @@
 
                     <i class="dividor">|</i>
 
-                    <i title="Heading 1" class="fa heading-icon" data-level="1">h1</i>
-                    <i title="Heading 2" class="fa heading-icon" data-level="2">h2</i>
-                    <i title="Heading 3" class="fa heading-icon" data-level="3">h3</i>
-                    <i title="Heading 4" class="fa heading-icon" data-level="4">h4</i>
-                    <i title="Heading 5" class="fa heading-icon" data-level="5">h5</i>
-                    <i title="Heading 6" class="fa heading-icon" data-level="6">h6</i>
+                    <i title="Heading 1" class="fa heading-icon" data-level="1">H1</i>
+                    <i title="Heading 2" class="fa heading-icon" data-level="2">H2</i>
+                    <i title="Heading 3" class="fa heading-icon" data-level="3">H3</i>
+                    <i title="Heading 4" class="fa heading-icon" data-level="4">H4</i>
+                    <i title="Heading 5" class="fa heading-icon" data-level="5">H5</i>
+                    <i title="Heading 6" class="fa heading-icon" data-level="6">H6</i>
 
                     <i class="dividor">|</i>
 
@@ -89,7 +90,9 @@ row 2 col 1 | row 2 col 2"
                     ></i>
                     <i class="dividor">|</i>
                     <i title="Emoji" id="emoji-button" class="fa fa-smile-o" data-remodal-target="emoji-modal"></i>
-                    <i title="Font awesome" class="fa fa-flag-o" data-remodal-target="fa-modal"></i>
+                    <i title="Font awesome" data-remodal-target="fa-modal">
+                        <button id="fa-button" class="fa fa-flag-o"></button>
+                    </i>
                     <i class="dividor">|</i>
                     <i title="Mathematical formula" class="fa fa-superscript" id="math-icon" data-sample="math" data-value="E = mc^2"></i>
                     <i
@@ -141,23 +144,17 @@ T3: 2014-01-02, 9d"
                     <i title="Toggle editor" class="fa fa-long-arrow-left" id="toggle-editor"></i>
                     <i title="Toggle preview" class="fa fa-long-arrow-right" id="toggle-preview"></i>
                     <i class="dividor">|</i>
-                    <input
-                        title="Import"
-                        id="import"
-                        class="fa fa-folder-open"
-                        type="file"
-                        id="file-input"
-                        style="width: 1.25rem; height: 1rem; overflow: hidden;"
-                    />
                     <i title="Download" id="download" class="fa fa-download" data-remodal-target="download-modal"></i>
                     <i title="Help" class="fa fa-question-circle" data-remodal-target="help-modal"></i>
+                    <i title="Import" class="fa fa-folder-open" onclick="document.getElementById('import').click();"> </i>
+                    <input id="import" type="file" id="file-input" style="display: none;" />
                 </div>
             </div>
 
             <div class="editor-preview no-gutters">
                 <div class="editor-wrap col-md  no-gutters" id="editor-wrap">
-                    <textarea placeholder="Code goes here ..." id="pad"># Code goes here ...</textarea
-                    ><!--onmouseover="giveFocus('editor-wrap')"-->
+                    <textarea placeholder="Code goes here ..." id="pad" cols="30" rows="10"># Code goes here ...</textarea>
+                    <!--onmouseover="giveFocus('editor-wrap')"-->
                 </div>
             </div>
             <div class="preview-wrap col-md" id="preview-wrap">
@@ -325,6 +322,11 @@ T3: 2014-01-02, 9d"
         </div>
     </body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js"></script>
     <!--CodeMirror scripts-->
     <script src="codemirror/lib/codemirror.js"></script>
 

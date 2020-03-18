@@ -73,7 +73,7 @@ div.CodeMirror-sizer {
     overflow-y: auto;
     overflow-x: hidden;
     position: absolute;
-    top: 1.75em;
+    top: 2.125rem;
     bottom: 0px;
     width: 50%;
     height: calc(100% - top);
