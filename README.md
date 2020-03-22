@@ -1,6 +1,6 @@
-# markdown-rt
+# [markdown-rt](https://markdown-rt000.herokuapp.com/)
 
-Heroku app: [markdown-rt](https://markdown-rt000.herokuapp.com/)
+
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/208px-Markdown-mark.svg.png)
 
