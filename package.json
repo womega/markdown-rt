@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "github-markdown-css": "^4.0.0",
     "highlight": "^0.2.4",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.4.1",
     "katex": "^0.11.1",
     "marked": "^0.8.0",
     "marked-sanitizer-github": "^1.0.0",
