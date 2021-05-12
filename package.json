@@ -8,7 +8,7 @@
     "asciimath-to-latex": "^0.3.2",
     "browserify": "^16.5.0",
     "chart.js": "^2.9.3",
-    "codemirror": "^5.52.0",
+    "codemirror": "^5.58.2",
     "dompurify": "^2.0.8",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
