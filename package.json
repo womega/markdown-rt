@@ -19,7 +19,7 @@
     "marked": "^0.8.0",
     "marked-sanitizer-github": "^1.0.0",
     "mathjax": "^3.0.1",
-    "mermaid": "^8.4.8",
+    "mermaid": "^8.13.8",
     "node-emoji": "^1.10.0",
     "path": "^0.12.7",
     "prism": "^4.1.2",
